@@ -10,7 +10,7 @@ This implement is motivated by DnCNN implementation [2]
 In order to train the CSNet from the scratch, you should run 
 1. 'GenerateTrainingPatches.m' first. It will create trainding data outsize of this CSNet folder (for 100Mb limitation of github). 
 
-2. TrainingCode/CSNet_v02/Demo_Train.m Training data is saved in "data/CSNet<noLayer>_r <subrate>_blk<block_size>_mBat<no_mini_batch_size>_<isLearnSamplingMatrix>_<isLearnBiasSampling>"
+2. TrainingCode/CSNet_v02/Demo_Train.m Training data is saved in "data/CSNet<noLayer>_r<subrate>_blk<block_size>_mBat<no_mini_batch_size>_<isLearnSamplingMatrix>_<isLearnBiasSampling>"
   
 
 ## Disclaimer 
