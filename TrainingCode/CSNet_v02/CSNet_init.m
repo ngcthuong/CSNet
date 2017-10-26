@@ -1,4 +1,4 @@
-function net = CSNet_init_orgv3
+function net = CSNet_init
 global featureSize noLayer blkSize subRate isLearnMtx;
 
 test = 0;
@@ -97,12 +97,6 @@ for i = 1:1:noLayer - 2
         'weightDecay',weightDecay, ...
         'pad', 1, 'opts', {{}}) ;
     
-%     net.layers{end+1} = struct('type', 'bnorm', ...
-%         'weights', {{clipping(sqrt(2/(9*featureSize))*randn(featureSize,1,'single'),b_min), zeros(featureSize,1,'single'),meanvar}}, ...
-%         'learningRate', [1 1 1], ...
-%         'weightDecay', [0 0], ...
-%         'opts', {{}}) ;
-% %     
     net.layers{end+1} = struct('type', 'relu','leak',0) ;
     
 end
