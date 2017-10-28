@@ -22,7 +22,7 @@ batSize = 64;
 opts.modelName        = ['CSNet' num2str(noLayer) '_' num2str(featureSize) '_r' num2str(subRate) ...
                           '_blk' num2str(blkSize) '_mBat' num2str(batSize) ...
                           '_' num2str(isLearnMtx(1)) '_' num2str(isLearnMtx(2)) ]; %%% model name
-opts.learningRate     = [logspace(-3.5,-3.5,40) logspace(-4,-4,20) logspace(-4.5,-4.5, 20) logspace(-5, -5, 20)];%%% you can change the learning rate
+opts.learningRate     = [logspace(-3,-3,50) logspace(-4,-4,30) logspace(-5, -5, 20)];%%% you can change the learning rate
 opts.batchSize        = batSize;
 opts.gpus             = [1]; %%% this code can only support one GPU!
 
@@ -33,7 +33,7 @@ opts.bnormLearningRate= 0;
 opts.solver           = 'Adam';
 opts.numberImdb       = 1;
 
-opts.imdbDir          = ['../../../TrainingPatches/imdb_96_' num2str(batSize) '_stride32.mat'];
+opts.imdbDir          = ['../../../TrainingPatches/imdb_96_' num2str(batSize) '_stride24.mat'];
 
 opts.gradientClipping = false; %%% set 'true' to prevent exploding gradients in the beginning.
 opts.backPropDepth    = Inf;

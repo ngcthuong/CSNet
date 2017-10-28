@@ -2,21 +2,16 @@ addpath('E:\matConvNet\matconvnet-1.0-beta25\matlab\mex');
 addpath('E:\matConvNet\matconvnet-1.0-beta25\matlab\simplenn');
 % addpath('E:\matConvNet\matconvnet-1.0-beta25\matlab');
 
-
-
-%%% test the model performance
-
-
 % clear; clc;
 format compact;
 global featureSize noLayer subRate blkSize isLearnMtx; %%% noise level
 
 featureSize = 64;
-noLayer = 17;
-subRate = 0.1;
-blkSize = 32;
-isLearnMtx = [1 0];
-batSize = 64;
+noLayer     = 3;
+subRate     = 0.1;
+blkSize     = 32;
+isLearnMtx  = [1 0];
+batSize     = 64;
 
 addpath(fullfile('../../Data','utilities'));
 dataSet = 'Set14'; 
@@ -27,8 +22,8 @@ showResult  = 0;
 useGPU      = 1;
 pauseTime   = 0;
 
-epoch       = 100;
-modelName   = ['Orgv3_CSNet' num2str(noLayer) '_' num2str(featureSize) '_r' num2str(subRate) ...
+epoch       = 97;
+modelName   = ['CSNet' num2str(noLayer) '_' num2str(featureSize) '_r' num2str(subRate) ...
     '_blk' num2str(blkSize) '_mBat' num2str(batSize) ...
     '_' num2str(isLearnMtx(1)) '_' num2str(isLearnMtx(2)) ]; %%% model name
 
@@ -41,12 +36,8 @@ for iter = 1:1:epoch
     net.layers = net.layers(1:end-1);
     
     %%%
-    net = vl_simplenn_tidy(net);
-    
-    % for i = 1:size(net.layers,2)
-    %     net.layers{i}.precious = 1;
-    % end
-    
+    net = vl_simplenn_tidy(net);    
+       
     %%% move to gpu
     if useGPU
         net = vl_simplenn_move(net, 'gpu') ;

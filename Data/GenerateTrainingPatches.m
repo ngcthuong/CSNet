@@ -12,7 +12,7 @@ if ~exist(dataName, 'dir'), mkdir(dataName); end
 folder        = 'BSDS500/train_test';
 
 patchsize     = 96;
-stride        = 32;
+stride        = 24;
 step          = 0;
 
 count   = 0;
@@ -69,7 +69,7 @@ for i = 1 : length(filepaths)
     %     end
     for s = 1:1:1
         image = imresize(image,scales(s),'bicubic');
-        for j = 1:1:8
+        for j = 1:1:1
             image_aug = data_augmentation(image, j);  % augment data
             im_label  = im2single(image_aug); % single
             [hei,wid,~] = size(im_label);
