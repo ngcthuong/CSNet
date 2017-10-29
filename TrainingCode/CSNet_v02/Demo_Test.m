@@ -14,7 +14,7 @@ isLearnMtx  = [1 0];
 batSize     = 64;
 
 addpath(fullfile('../../Data','utilities'));
-dataSet = 'Set14'; 
+dataSet = 'Set5'; 
 folderTest  = fullfile('../../','testsets',dataSet); %%% test dataset
 %folderTest  = fullfile('data','Test','Set68');1 %%% test dataset
 
@@ -22,13 +22,13 @@ showResult  = 0;
 useGPU      = 1;
 pauseTime   = 0;
 
-epoch       = 97;
+epoch       = 100;
 modelName   = ['CSNet' num2str(noLayer) '_' num2str(featureSize) '_r' num2str(subRate) ...
     '_blk' num2str(blkSize) '_mBat' num2str(batSize) ...
     '_' num2str(isLearnMtx(1)) '_' num2str(isLearnMtx(2)) ]; %%% model name
 
 
-for iter = 1:1:epoch
+for iter = 100:1:epoch
     
     %%% load Gaussian denoising model
     load(fullfile('data',modelName,[modelName,'-epoch-',num2str(iter),'.mat']));
