@@ -5,6 +5,7 @@ This implement is motivated by DnCNN implementation [2]
 
 ## Current Performance | PSNR (dB)
 |         |      | GSR |    | CSNet[1] | | ReImplement| | Best (17 conv, adapt learn rate) | |
+| ---     | ---     |---      |---      | ---     |---      | ---    |---     | ---  |---|
 | Image 	|Rate	|PSRN	|SSIM	|PSNR	|SSIM	|PSNR    |SSIM    |PSNR	|SSIM |
 | ---     | ---     |---      |---      | ---     |---      | ---    |---     | ---  |---|
 | baby	|0.1		|32.18	|0.8832	|34.83	|0.9170	|33.36   |0.902   |33.75	|0.907|
