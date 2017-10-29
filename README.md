@@ -4,10 +4,9 @@ This implement is motivated by DnCNN implementation [2]
 
 
 ## Current Performance | PSNR (dB)
-|         |      | GSR |    | CSNet[1] | | ReImplement| | Best (17 conv, adapt learn rate) | |
+|         |      | GSR |    | CSNet[1] | | ReImplement| | Best  | |
 | ---     | ---     |---      |---      | ---     |---      | ---    |---     | ---  |---|
 | Image 	|Rate	|PSRN	|SSIM	|PSNR	|SSIM	|PSNR    |SSIM    |PSNR	|SSIM |
-| ---     | ---     |---      |---      | ---     |---      | ---    |---     | ---  |---|
 | baby	|0.1		|32.18	|0.8832	|34.83	|0.9170	|33.36   |0.902   |33.75	|0.907|
 | bird 	|0.1		|34.47	|0.9411	|35.15	|0.9476	|33.05   |0.931   |34.47	|0.949|
 | butter	|0.1		|23.78	|0.8279	|28.01	|0.9018	|25.71   |0.859   |27.53	|0.914|
