@@ -317,7 +317,7 @@ function [inputs,labels] = getSimpleNNBatch(imdb, batch)
 %%%-------------------------------------------------------------------------
 inputs = imdb.inputs(:,:,:,batch);
 rng('shuffle');
-mode = randperm(1);
+mode = randperm(8);
 inputs = data_augmentation_CSNet(inputs, mode(1));
 labels = inputs; 
 

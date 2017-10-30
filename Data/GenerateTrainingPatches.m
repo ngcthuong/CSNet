@@ -11,7 +11,7 @@ if ~exist(dataName, 'dir'), mkdir(dataName); end
 
 folder        = 'BSDS500/train_test';
 
-patchsize     = 96;
+patchsize     = 256;
 stride        = 24;
 step          = 0;
 

@@ -7,7 +7,7 @@ format compact;
 global featureSize noLayer subRate blkSize isLearnMtx; %%% noise level
 
 featureSize = 64;
-noLayer     = 3;
+noLayer     = 5;
 subRate     = 0.1;
 blkSize     = 32;
 isLearnMtx  = [1 0];
@@ -22,13 +22,13 @@ showResult  = 0;
 useGPU      = 1;
 pauseTime   = 0;
 
-epoch       = 100;
+epoch       = 83;
 modelName   = ['CSNet' num2str(noLayer) '_' num2str(featureSize) '_r' num2str(subRate) ...
     '_blk' num2str(blkSize) '_mBat' num2str(batSize) ...
     '_' num2str(isLearnMtx(1)) '_' num2str(isLearnMtx(2)) ]; %%% model name
 
 
-for iter = 100:1:epoch
+for iter = 1:1:epoch
     
     %%% load Gaussian denoising model
     load(fullfile('data',modelName,[modelName,'-epoch-',num2str(iter),'.mat']));

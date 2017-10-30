@@ -10,7 +10,7 @@ rng('default')
 global featureSize noLayer subRate blkSize isLearnMtx; %%% noise level
 
 featureSize = 64;
-noLayer = 3; 
+noLayer = 5; 
 subRate = 0.1;
 blkSize = 32; 
 isLearnMtx = [1 0]; 
@@ -33,7 +33,7 @@ opts.bnormLearningRate= 0;
 opts.solver           = 'Adam';
 opts.numberImdb       = 1;
 
-opts.imdbDir          = ['../../../TrainingPatches/imdb_96_' num2str(batSize) '_stride24.mat'];
+opts.imdbDir          = ['../../../TrainingPatches/imdb_96_' num2str(batSize) '_stride32.mat'];
 
 opts.gradientClipping = false; %%% set 'true' to prevent exploding gradients in the beginning.
 opts.backPropDepth    = Inf;
