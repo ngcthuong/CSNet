@@ -22,7 +22,7 @@ showResult  = 0;
 useGPU      = 1;
 pauseTime   = 0;
 
-epoch       = 83;
+epoch       = 100;
 modelName   = ['CSNet' num2str(noLayer) '_' num2str(featureSize) '_r' num2str(subRate) ...
     '_blk' num2str(blkSize) '_mBat' num2str(batSize) ...
     '_' num2str(isLearnMtx(1)) '_' num2str(isLearnMtx(2)) ]; %%% model name

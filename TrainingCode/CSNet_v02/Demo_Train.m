@@ -22,7 +22,7 @@ batSize = 64;
 opts.modelName        = ['CSNet' num2str(noLayer) '_' num2str(featureSize) '_r' num2str(subRate) ...
                           '_blk' num2str(blkSize) '_mBat' num2str(batSize) ...
                           '_' num2str(isLearnMtx(1)) '_' num2str(isLearnMtx(2)) ]; %%% model name
-opts.learningRate     = [logspace(-3,-3,50) logspace(-4,-4,30) logspace(-5, -5, 20)];%%% you can change the learning rate
+opts.learningRate     = [logspace(-3.5,-3.5,30) logspace(-4, -4, 30), logspace(-5,-5,20) logspace(-5.5, -5.5, 20)];%%% you can change the learning rate
 opts.batchSize        = batSize;
 opts.gpus             = [1]; %%% this code can only support one GPU!
 
