@@ -1,9 +1,9 @@
 
 %%% Note: run the 'GenerateTrainingPatches.m' to generate
 %%% training data (clean images) first.
-addpath('E:\matConvNet\matconvnet-1.0-beta25\matlab\mex');
-addpath('E:\matConvNet\matconvnet-1.0-beta25\matlab\simplenn'); 
-% addpath('E:\matConvNet\matconvnet-1.0-beta25\matlab'); 
+addpath('D:\matconvnet-1.0-beta25\matlab\mex');
+addpath('D:\matconvnet-1.0-beta25\matlab\simplenn'); 
+% addpath('D:\matconvnet-1.0-beta25\matlab'); 
 
 rng('default')
 
@@ -33,7 +33,7 @@ opts.bnormLearningRate= 0;
 opts.solver           = 'Adam';
 opts.numberImdb       = 1;
 
-opts.imdbDir          = ['../../../TrainingPatches/imdb_96_' num2str(batSize) '_stride32.mat'];
+opts.imdbDir          = ['../../../TrainingPatches/imdb_96_' num2str(batSize) '_stride20.mat'];
 
 opts.gradientClipping = false; %%% set 'true' to prevent exploding gradients in the beginning.
 opts.backPropDepth    = Inf;
