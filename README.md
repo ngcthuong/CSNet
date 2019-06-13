@@ -3,6 +3,13 @@ This is reimplemenation of CSNet [1] for block based compressive sensing reconst
 This implement is motivated by DnCNN implementation [2]
 
 
+## Update 2019/06 
+The code has been fixed, it now can produce better quality than CSNet (i.e. 32.40 PSNR at subrate 0.1 for Set14). 
+The main reason is author converts RGB images to YCbCr and takes the Y channel, while in previous implementation I used rgb2gray for converting. 
+
+CSNet_v03 contains up-to-date implementation. 
+
+
 ## Current Performance | PSNR (dB)
 |         |      | GSR |    | CSNet[1] | | ReImp.| | Best  | |
 | ---     | ---     |---      |---      | ---     |---      | ---    |---     | ---  |---|
