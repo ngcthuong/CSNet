@@ -11,10 +11,10 @@ noLayer     = 5;
 subRate     = 0.1;
 blkSize     = 32;
 isLearnMtx  = [1 0];
-batSize     = 64;
+batSize     = 128;
 
 addpath(fullfile('../../Data','utilities'));
-dataSet = 'Set5'; 
+dataSet = 'Set5';
 folderTest  = fullfile('../../','testsets',dataSet); %%% test dataset
 %folderTest  = fullfile('data','Test','Set68');1 %%% test dataset
 
@@ -22,7 +22,7 @@ showResult  = 0;
 useGPU      = 1;
 pauseTime   = 0;
 
-epoch       = 83;
+epoch       = 100;
 modelName   = ['CSNet' num2str(noLayer) '_' num2str(featureSize) '_r' num2str(subRate) ...
     '_blk' num2str(blkSize) '_mBat' num2str(batSize) ...
     '_' num2str(isLearnMtx(1)) '_' num2str(isLearnMtx(2)) ]; %%% model name
@@ -36,8 +36,8 @@ for iter = 1:1:epoch
     net.layers = net.layers(1:end-1);
     
     %%%
-    net = vl_simplenn_tidy(net);    
-       
+    net = vl_simplenn_tidy(net);
+    
     %%% move to gpu
     if useGPU
         net = vl_simplenn_move(net, 'gpu') ;
@@ -61,8 +61,10 @@ for iter = 1:1:epoch
         [~,nameCur,extCur] = fileparts(filePaths(i).name);
         label = im2double(label);
         
-        if size(label,3)==3
-            label = rgb2gray(label);
+        if size(label,3) == 3
+            label = modcrop(label,32);
+            label = rgb2ycbcr(label);
+            label = label(:,:,1);
         end
         
         if mod(size(label, 1), blkSize) ~= 0 || mod(size(label, 2), blkSize) ~= 0
@@ -106,12 +108,12 @@ for iter = 1:1:epoch
     
 end
 pr = figure(1);
-plot(allPSNR, 'r', 'LineWidth', 3); xlabel('epoch'); ylabel('PSNR (dB)'); 
+plot(allPSNR, 'r', 'LineWidth', 3); xlabel('epoch'); ylabel('PSNR (dB)');
 title(['Average PSNR for ' dataSet]); grid on;
 saveas(pr, ['Results\PSNR_' modelName '.png']);
 saveas(pr, ['Results\PSNR_' modelName '.fig']);
 pr = figure(2);
-plot(allSSIM, 'r', 'LineWidth', 3); xlabel('epoch'); ylabel('SSIM'); 
-title(['Average SSIM for ' dataSet]); grid on; 
+plot(allSSIM, 'r', 'LineWidth', 3); xlabel('epoch'); ylabel('SSIM');
+title(['Average SSIM for ' dataSet]); grid on;
 saveas(pr, ['Results\SSIM_' modelName '.png']);
 saveas(pr, ['Results\SSIM_' modelName '.fig']);
